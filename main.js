@@ -8,7 +8,7 @@ const scoreLabel = document.getElementById("score");
 const gameOverText = document.getElementById("game-over");
 ////
 
-var words = ["belt","mercy","table"];
+var words = ["belt","mercy","table","grade","template","love","shader","gloves","cannon","faster","robot"];
 var isPlaying = 0;
 var level = 2;
 var score = 0;
