@@ -1,0 +1,56 @@
+#main-div{
+    display: flexbox;
+    align-content: center;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    background: lightgray;
+    margin: 0 auto;
+    flex-direction: column;
+}
+#score{
+    position: absolute;
+}
+
+#game-over{
+    position: absolute;
+    background-color: bisque;
+    left: 30%;
+    right: 30%;
+    text-align: center;
+    display: none;
+}
+
+#text{
+    position: relative;
+    display: inherit;
+    text-align: center;
+    margin:0 auto;
+    top:15%;
+    padding: 5%;
+    border-radius: ;
+}
+
+#time-counter{
+    position: relative;
+}
+
+#input{
+    position: relative;
+    display: inherit;
+    height: 36px;
+    margin: 10px auto;
+    font-size: large;
+    text-align: center;
+    top: 18%;
+}
+
+#restart-button{
+    position: relative;
+    display: inherit;
+    margin: 0 auto;
+    width: 100px;
+    height: 30px;
+    top: 25%;
+    display: none;
+}
