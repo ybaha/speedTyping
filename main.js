@@ -7,18 +7,22 @@ const timeLabel = document.getElementById("time-counter");
 const scoreLabel = document.getElementById("score");
 const gameOverText = document.getElementById("game-over");
 const levelSelect = document.getElementById("select");
+const highScoreLabel = document.getElementById("highscore");
 ////
 
 var words = ["belt","mercy","table","grade","template","love","shader","gloves","cannon","faster","robot"];
 var isPlaying = 0;
 var level = 4;
 var score = 0;
+var highScore = 0;
 var interval;
+var timeLeft = level;
 
 checkStart();
 
 input.addEventListener("input", (event) => {
     event.target.value = event.target.value.toLowerCase();
+    input.value = input.value.replace(/\s/g, '');
 });
 
 levelSelect.addEventListener("change", (event) => {
@@ -52,24 +56,23 @@ function randomWord(){
 }
 
 function timeCounter(){
-    var time = level;
-    timeLabel.innerHTML = time;
+    timeLabel.innerHTML = timeLeft;
     let counter = setInterval( () => {
-        console.log("timeCounter");
-        
-        if(time == 0){
+        if(timeLeft == 0){
             isPlaying = 0;
             button.innerHTML = "RESTART";
             checkStart();
-            time = level;
-            timeLabel.innerHTML = time;
+            timeLeft = level;
+            timeLabel.innerHTML = timeLeft;
             gameOverText.style.display = "block"
+            if(score>highScore) highScore = score;
+            highScoreLabel.innerHTML = "High Score: " + highScore;
             score = 0;
             clearInterval(counter);
         }
         else{
-            time--;
-            timeLabel.innerHTML = time;
+            timeLeft--;
+            timeLabel.innerHTML = timeLeft;
         };
     },1000);
 }
@@ -78,6 +81,7 @@ function typedCorrect(){
     if(isPlaying == 1){
         if(input.value == text.innerHTML){
             score++;
+            timeLeft += 1;
             scoreLabel.innerHTML = "score: " + score; 
             input.value = "";
             randomWord();
@@ -100,5 +104,6 @@ function setDifficulty(){
             level = 2;
             break;
     }
+    timeLeft = level;
 }
 

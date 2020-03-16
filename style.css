@@ -56,6 +56,14 @@
 }
 
 #select{
-    position: absolute;
-    top: 50%;
+    position: relative;
+    margin-top: 20%;
+}
+
+#highscore{
+    position: relative;
+    text-align: center;
+    margin-top: 16%;
+    margin-right: 25%;
+
 }
