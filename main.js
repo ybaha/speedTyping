@@ -17,7 +17,13 @@ var interval;
 
 checkStart();
 
-addEventListener("change", setDifficulty);
+input.addEventListener("input", (event) => {
+    event.target.value = event.target.value.toLowerCase();
+});
+
+levelSelect.addEventListener("change", (event) => {
+    setDifficulty();
+});
 
 
 function checkStart(){
