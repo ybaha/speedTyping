@@ -3,18 +3,22 @@
 const text = document.getElementById("text");
 const input = document.getElementById("input");
 const button = document.getElementById("restart-button");
-const timer = document.getElementById("time-counter");
+const timeLabel = document.getElementById("time-counter");
 const scoreLabel = document.getElementById("score");
 const gameOverText = document.getElementById("game-over");
+const levelSelect = document.getElementById("select");
 ////
 
 var words = ["belt","mercy","table","grade","template","love","shader","gloves","cannon","faster","robot"];
 var isPlaying = 0;
-var level = 2;
+var level = 4;
 var score = 0;
 var interval;
 
 checkStart();
+
+addEventListener("change", setDifficulty);
+
 
 function checkStart(){
     interval = setInterval(() => {
@@ -24,9 +28,6 @@ function checkStart(){
         }
     }, 100);
 }
-
-
-/// RANDOM TEXT GENERATING ///
 
 
 function initAll(){
@@ -46,7 +47,7 @@ function randomWord(){
 
 function timeCounter(){
     var time = level;
-    timer.innerHTML = time;
+    timeLabel.innerHTML = time;
     let counter = setInterval( () => {
         console.log("timeCounter");
         
@@ -55,16 +56,15 @@ function timeCounter(){
             button.innerHTML = "RESTART";
             checkStart();
             time = level;
-            timer.innerHTML = time;
+            timeLabel.innerHTML = time;
             gameOverText.style.display = "block"
             score = 0;
             clearInterval(counter);
         }
         else{
             time--;
-            timer.innerHTML = time;
+            timeLabel.innerHTML = time;
         };
-        //console.log(time);
     },1000);
 }
 
@@ -79,4 +79,20 @@ function typedCorrect(){
     }
 }
 
+
+function setDifficulty(){
+    console.log(levelSelect.selectedIndex);
+    
+    switch(levelSelect.selectedIndex){
+        case 0:
+            level = 4;
+            break;
+        case 1:
+            level = 3;
+            break;
+        case 2:
+            level = 2;
+            break;
+    }
+}
 
