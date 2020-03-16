@@ -10,7 +10,6 @@ const levelSelect = document.getElementById("select");
 const highScoreLabel = document.getElementById("highscore");
 ////
 
-var words = ["belt","mercy","table","grade","template","love","shader","gloves","cannon","faster","robot"];
 var isPlaying = 0;
 var level = 4;
 var score = 0;
@@ -32,7 +31,7 @@ levelSelect.addEventListener("change", (event) => {
 
 function checkStart(){
     interval = setInterval(() => {
-        if(input.value == text.innerHTML){
+        if(input.value == "go"){
             initAll();
             console.log("checkstart");
         }
@@ -45,6 +44,8 @@ function initAll(){
     isPlaying = 1;
     gameOverText.style = "none";
     clearInterval(interval);
+    randomWord();
+    input.value = "";
     setInterval(typedCorrect,50);
     timeCounter();
 }
@@ -60,7 +61,6 @@ function timeCounter(){
     let counter = setInterval( () => {
         if(timeLeft == 0){
             isPlaying = 0;
-            button.innerHTML = "RESTART";
             checkStart();
             timeLeft = level;
             timeLabel.innerHTML = timeLeft;
@@ -68,6 +68,7 @@ function timeCounter(){
             if(score>highScore) highScore = score;
             highScoreLabel.innerHTML = "High Score: " + highScore;
             score = 0;
+            text.innerHTML = 'type "go" to start';
             clearInterval(counter);
         }
         else{
@@ -106,4 +107,5 @@ function setDifficulty(){
     }
     timeLeft = level;
 }
+
 
