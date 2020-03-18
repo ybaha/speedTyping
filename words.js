@@ -11,7 +11,7 @@ inputTwo.addEventListener("input", (event) => {
 });
 
 async function getWords(){
-    const url = "http://api.datamuse.com/words?ml=" + inpURL;
+    const url = "https://api.datamuse.com/words?ml=" + inpURL;
     const response = await fetch(url);
     const data = await response.json();
     return data;
