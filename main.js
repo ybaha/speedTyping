@@ -8,6 +8,7 @@ const scoreLabel = document.getElementById("score");
 const gameOverText = document.getElementById("game-over");
 const levelSelect = document.getElementById("select");
 const highScoreLabel = document.getElementById("highscore");
+
 ////
 
 var isPlaying = 0;
@@ -21,7 +22,7 @@ checkStart();
 
 input.addEventListener("input", (event) => {
     event.target.value = event.target.value.toLowerCase();
-    input.value = input.value.replace(/\s/g, '');
+    input.value = input.value.replace(/\s/g, "");
 });
 
 levelSelect.addEventListener("change", (event) => {
@@ -33,14 +34,14 @@ function checkStart(){
     interval = setInterval(() => {
         if(input.value == "go"){
             initAll();
-            console.log("checkstart");
+            //console.log("checkstart");
         }
     }, 100);
 }
 
 
 function initAll(){
-    console.log(isPlaying);
+    //console.log(isPlaying);
     isPlaying = 1;
     gameOverText.style = "none";
     clearInterval(interval);
@@ -92,8 +93,7 @@ function typedCorrect(){
 
 
 function setDifficulty(){
-    console.log(levelSelect.selectedIndex);
-    
+    //console.log(levelSelect.selectedIndex);
     switch(levelSelect.selectedIndex){
         case 0:
             level = 4;

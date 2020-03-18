@@ -49,4 +49,4 @@ doubt
 glue
 child`;
 words = wordsRaw.replace(/\n/g, ',');
-var words = words.split(",");
+words = words.split(",");

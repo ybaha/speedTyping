@@ -45,6 +45,16 @@
     top: 18%;
 }
 
+#input-2{
+    position: relative;
+    display: inherit;
+    height: 20px;
+    margin: 10px 40%;
+    font-size: small;
+    text-align: center;
+    
+}
+
 #restart-button{
     position: relative;
     display: inherit;
